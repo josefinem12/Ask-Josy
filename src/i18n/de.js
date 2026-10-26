@@ -72,7 +72,7 @@ export default {
         icon: 'phone',
         title: 'Rückruf-Hilfe',
         text: 'Schreiben Sie mir oder rufen Sie an. Ich rufe Sie innerhalb weniger Stunden zurück: {callbackHours}.',
-        price: '{callbackPrice} pro Monat, so viele Anrufe, wie Sie möchten',
+        price: '{callbackPrice} pro Monat, so viele Anrufe, wie Sie möchten. Jederzeit kündbar.',
       },
       {
         icon: 'guide',
@@ -161,6 +161,7 @@ export default {
         includes: [
           'So viele Anrufe, wie Sie möchten',
           'Rückrufzeiten: {callbackHours}',
+          'Jederzeit kündbar',
         ],
         price: '{callbackPrice} pro Monat',
       },
@@ -180,7 +181,7 @@ export default {
       },
       {
         q: 'Wie kann ich bezahlen?',
-        a: 'Bar oder mit PayPal. PayPal ist praktisch, wenn Ihre Familie aus dem Ausland bezahlt.',
+        a: 'Bar, per Überweisung oder mit PayPal. Überweisung und PayPal sind praktisch, wenn Ihre Familie aus dem Ausland bezahlt.',
       },
       {
         q: 'Kann meine Familie für mich buchen?',

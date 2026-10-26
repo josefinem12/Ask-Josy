@@ -72,7 +72,7 @@ export default {
         icon: 'phone',
         title: 'Callback help',
         text: 'Send a message or call. I call you back within a few hours: {callbackHours}.',
-        price: '{callbackPrice} per month, as many calls as you like',
+        price: '{callbackPrice} per month, as many calls as you like. Cancel any time.',
       },
       {
         icon: 'guide',
@@ -161,6 +161,7 @@ export default {
         includes: [
           'As many calls as you like',
           'Callback times: {callbackHours}',
+          'Cancel any time',
         ],
         price: '{callbackPrice} per month',
       },
@@ -180,7 +181,7 @@ export default {
       },
       {
         q: 'How can I pay?',
-        a: 'In cash or with PayPal. PayPal is handy for family who pay from abroad.',
+        a: 'In cash, by bank transfer or with PayPal. Bank transfer and PayPal are handy for family who pay from abroad.',
       },
       {
         q: 'Can my family book for me?',
