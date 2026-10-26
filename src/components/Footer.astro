@@ -1,0 +1,35 @@
+---
+import Icon from './Icon.astro';
+import { t, fill, url } from '../i18n/languages.js';
+import { business, phoneLink, whatsappLink, emailLink } from '../settings/business.js';
+
+interface Props { lang: string }
+const { lang } = Astro.props;
+const text = t(lang);
+---
+<footer class="site-footer">
+  <div class="container footer-grid">
+    <div>
+      <p class="footer-name">Ask Josy</p>
+      <p>{fill(text.footer.tagline, lang)}</p>
+      <p class="footer-safety">
+        <Icon name="shield" size={28} />
+        <span>{text.footer.safety}</span>
+      </p>
+    </div>
+    <ul class="footer-contact">
+      <li><a href={phoneLink}><Icon name="phone" size={28} /> {business.phoneDisplay}</a></li>
+      <li><a href={whatsappLink}><Icon name="chat" size={28} /> {text.buttons.whatsapp}</a></li>
+      <li><a href={emailLink}><Icon name="mail" size={28} /> {business.email}</a></li>
+    </ul>
+    <nav aria-label={text.menu}>
+      <ul class="footer-nav">
+        <li><a href={url(lang, 'services')}>{text.nav.services}</a></li>
+        <li><a href={url(lang, 'about')}>{text.nav.about}</a></li>
+        <li><a href={url(lang, 'safety')}>{text.nav.safety}</a></li>
+        <li><a href={url(lang, 'guides')}>{text.nav.guides}</a></li>
+        <li><a href={url(lang, 'contact')}>{text.nav.contact}</a></li>
+      </ul>
+    </nav>
+  </div>
+</footer>

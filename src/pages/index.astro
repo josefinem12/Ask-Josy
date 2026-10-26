@@ -1,0 +1,37 @@
+---
+// The main address (askjosy.pt/) sends people to the English or German
+// home page, depending on their phone's language. If that doesn't work,
+// they see two big buttons to choose from.
+import '@fontsource/atkinson-hyperlegible/400.css';
+import '@fontsource/atkinson-hyperlegible/700.css';
+import '../styles/global.css';
+import { languages, defaultLang, url } from '../i18n/languages.js';
+const codes = Object.keys(languages);
+---
+<!doctype html>
+<html lang={defaultLang}>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Ask Josy</title>
+    <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
+    <script is:inline define:vars={{ codes, defaultLang }}>
+      const wanted = (navigator.languages || [navigator.language || ''])
+        .map((l) => l.slice(0, 2).toLowerCase())
+        .find((l) => codes.includes(l));
+      location.replace('/' + (wanted || defaultLang) + '/');
+    </script>
+  </head>
+  <body>
+    <main class="container language-choice">
+      <h1>Ask Josy</h1>
+      <div class="contact-buttons">
+        {codes.map((code) => (
+          <a class="button button-primary button-large" href={url(code)} lang={code}>
+            {languages[code].label}
+          </a>
+        ))}
+      </div>
+    </main>
+  </body>
+</html>

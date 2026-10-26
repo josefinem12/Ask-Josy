@@ -1,0 +1,63 @@
+---
+import { languages, t, url } from '../i18n/languages.js';
+
+interface Props { lang: string; page: string }
+const { lang, page } = Astro.props;
+const text = t(lang);
+
+const navItems = [
+  { page: '', label: text.nav.home },
+  { page: 'services', label: text.nav.services },
+  { page: 'about', label: text.nav.about },
+  { page: 'safety', label: text.nav.safety },
+  { page: 'guides', label: text.nav.guides },
+  { page: 'contact', label: text.nav.contact },
+];
+---
+<a class="skip-link" href="#main">{text.skipLink}</a>
+
+<header class="site-header">
+  <div class="container header-top">
+    <a class="logo" href={url(lang)}>Ask&nbsp;Josy</a>
+
+    <nav class="language-switch" aria-label={text.languageLabel}>
+      {Object.entries(languages).map(([code, info]) => (
+        <a
+          href={url(code, page)}
+          lang={code}
+          hreflang={code}
+          aria-current={code === lang ? 'true' : undefined}
+        >
+          {info.label}
+        </a>
+      ))}
+    </nav>
+  </div>
+
+  <!-- Small screens: a "Menu" button you tap to open (no hover needed). -->
+  <details class="nav-mobile container">
+    <summary>{text.menu}</summary>
+    <ul>
+      {navItems.map((item) => (
+        <li>
+          <a href={url(lang, item.page)} aria-current={item.page === page ? 'page' : undefined}>
+            {item.label}
+          </a>
+        </li>
+      ))}
+    </ul>
+  </details>
+
+  <!-- Larger screens: all links always visible. -->
+  <nav class="nav-desktop" aria-label={text.menu}>
+    <ul class="container">
+      {navItems.map((item) => (
+        <li>
+          <a href={url(lang, item.page)} aria-current={item.page === page ? 'page' : undefined}>
+            {item.label}
+          </a>
+        </li>
+      ))}
+    </ul>
+  </nav>
+</header>

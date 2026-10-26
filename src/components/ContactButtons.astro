@@ -1,0 +1,25 @@
+---
+// The big "Call me" and "WhatsApp" buttons, plus the number written out.
+import Icon from './Icon.astro';
+import { t } from '../i18n/languages.js';
+import { business, phoneLink, whatsappLink } from '../settings/business.js';
+
+interface Props { lang: string; showNumber?: boolean }
+const { lang, showNumber = true } = Astro.props;
+const text = t(lang);
+---
+<div class="contact-buttons">
+  <a class="button button-primary button-large" href={phoneLink}>
+    <Icon name="phone" />
+    <span>{text.buttons.call}</span>
+  </a>
+  <a class="button button-whatsapp button-large" href={whatsappLink}>
+    <Icon name="chat" />
+    <span>{text.buttons.whatsapp}</span>
+  </a>
+</div>
+{showNumber && (
+  <p class="phone-number">
+    <a href={phoneLink}>{business.phoneDisplay}</a>
+  </p>
+)}
