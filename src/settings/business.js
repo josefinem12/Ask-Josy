@@ -16,10 +16,10 @@ export const business = {
   },
 
   // Phone number exactly as people should see it written.
-  phoneDisplay: '+31 6 4940 5139',
+  phoneDisplay: '+351 000 000 000', // TEMPORARY: replace with the real number
   // Same number in international format, digits only, no spaces or +.
   // Portugal starts with 351. Example: '351912345678'
-  phoneDigits: '31649405139',
+  phoneDigits: '351000000000', // TEMPORARY
 
   email: 'askjosymertens@gmail.com',
 
