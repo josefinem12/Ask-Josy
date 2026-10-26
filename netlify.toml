@@ -1,0 +1,23 @@
+# Settings for Netlify. You do not need to change anything here.
+
+[build]
+  command = "npm run build"
+  publish = "dist"
+
+[build.environment]
+  NODE_VERSION = "22"
+
+# Send visitors of the main address to their language.
+# German phones go to /de/, everyone else to /en/.
+[[redirects]]
+  from = "/"
+  to = "/de/"
+  status = 302
+  force = true
+  conditions = { Language = ["de"] }
+
+[[redirects]]
+  from = "/"
+  to = "/en/"
+  status = 302
+  force = true
