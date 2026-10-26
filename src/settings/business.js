@@ -32,9 +32,6 @@ export const business = {
     phoneSetup: null,         // phone setup (leave null if part of a home visit)
     printedGuide: null,       // one printed guide
   },
-
-  // Formspree form ID, e.g. 'xyzabcd'. See README for how to get one.
-  formspreeId: '[FORM_ID]',
 };
 
 export const phoneLink = `tel:+${business.phoneDigits}`;

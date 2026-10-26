@@ -2,7 +2,7 @@
 import Base from '../../layouts/Base.astro';
 import Icon from '../../components/Icon.astro';
 import ContactButtons from '../../components/ContactButtons.astro';
-import { languages, t, fill } from '../../i18n/languages.js';
+import { languages, t, fill, url } from '../../i18n/languages.js';
 import { business, emailLink } from '../../settings/business.js';
 
 export function getStaticPaths() {
@@ -29,21 +29,25 @@ const f = text.fields;
       <h2 id="form-title">{text.formTitle}</h2>
       <p>{text.formIntro}</p>
 
-      <!-- The form is sent by Formspree. Your form ID is in src/settings/business.js -->
+      <!-- Netlify Forms receives this form. Messages appear in your Netlify
+           dashboard under "Forms", and Netlify can email them to you. -->
       <form
         id="booking-form"
         class="booking-form"
-        action={`https://formspree.io/f/${business.formspreeId}`}
+        name="booking"
         method="POST"
+        action={url(lang, 'thanks')}
+        data-netlify="true"
+        netlify-honeypot="bot-field"
         data-sending={text.sending}
       >
         <p class="form-note">{text.requiredNote}</p>
 
-        <input type="hidden" name="_subject" value="Ask Josy: new request" />
+        <input type="hidden" name="form-name" value="booking" />
         <input type="hidden" name="website_language" value={lang} />
         <!-- Hidden trap for spam robots. People never see it. -->
         <div class="visually-hidden" aria-hidden="true">
-          <label>Leave empty <input type="text" name="_gotcha" tabindex="-1" autocomplete="off" /></label>
+          <label>Leave empty <input type="text" name="bot-field" tabindex="-1" autocomplete="off" /></label>
         </div>
 
         <div class="field">
@@ -128,10 +132,10 @@ const f = text.fields;
     error?.setAttribute('hidden', '');
 
     try {
-      const response = await fetch(form.action, {
+      const response = await fetch('/', {
         method: 'POST',
-        body: new FormData(form),
-        headers: { Accept: 'application/json' },
+        headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+        body: new URLSearchParams(new FormData(form) as any).toString(),
       });
       if (!response.ok) throw new Error(String(response.status));
       form.hidden = true;

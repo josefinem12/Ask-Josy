@@ -34,18 +34,20 @@ See `src/content/guides/HOW-TO-ADD-A-GUIDE.txt`. In short: copy
 `src/content/guides/en/bigger-text.md`, rename it, and change the text.
 Put the German version in `src/content/guides/de/` with the same file name.
 
-## Setting up the contact form (Formspree, free)
+## The contact form (Netlify Forms)
 
-1. Go to https://formspree.io and create a free account with your email.
-2. Click **New form**, give it a name (for example "Ask Josy"), and choose
-   your email address.
-3. Formspree shows an address like `https://formspree.io/f/xyzabcd`.
-   Copy the last part (`xyzabcd`).
-4. In `src/settings/business.js`, replace `[FORM_ID]` with it.
-5. After the site is online, send yourself a test message. The first time,
-   Formspree asks you to confirm by email.
+The "Book a visit" form uses Netlify Forms, which is built into Netlify.
+There is nothing to set up before publishing.
 
-Messages arrive in your email inbox. The free plan allows 50 messages a month.
+After the site is online on Netlify:
+
+1. Send yourself a test message from the "Book a visit" page.
+2. In Netlify, open your site and click **Forms**. Your message is there.
+3. To get an email for each new message: go to **Site configuration → Notifications →
+   Emails and webhooks → Form submission notifications → Add notification →
+   Email notification**, type your email address, and save.
+
+Note: the form only works on the real Netlify site, not on `npm run dev`.
 
 ## Adding Portuguese later
 

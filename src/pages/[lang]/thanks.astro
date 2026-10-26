@@ -1,0 +1,26 @@
+---
+// Shown after sending the booking form, if the browser could not show
+// the "Thank you" message on the form page itself.
+import Base from '../../layouts/Base.astro';
+import Icon from '../../components/Icon.astro';
+import { languages, t, url } from '../../i18n/languages.js';
+
+export function getStaticPaths() {
+  return Object.keys(languages).map((lang) => ({ params: { lang } }));
+}
+
+const { lang } = Astro.params;
+const text = t(lang);
+---
+<Base lang={lang} page="thanks" title={`${text.contact.successTitle} – Ask Josy`} description={text.contact.successText}>
+  <div class="container page-intro">
+    <div class="form-success">
+      <Icon name="check" size={48} />
+      <div>
+        <h1>{text.contact.successTitle}</h1>
+        <p>{text.contact.successText}</p>
+        <a class="button button-primary" href={url(lang)}>{text.notFound.home}</a>
+      </div>
+    </div>
+  </div>
+</Base>
