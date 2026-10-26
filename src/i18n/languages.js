@@ -32,7 +32,7 @@ import { business } from '../settings/business.js';
 export function fill(text, lang) {
   const p = business.prices;
   const values = {
-    town: business.town,
+    town: business.town[lang],
     phone: business.phoneDisplay,
     email: business.email,
     callbackHours: business.callbackHours[lang],

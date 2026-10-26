@@ -93,7 +93,7 @@ export default {
 
     aboutTitle: 'Hallo, ich bin Josy',
     aboutText:
-      'Ich lebe in {town} und helfe gerne Menschen, sich mit Technik wohlzufühlen. Ich bin geduldig, spreche Deutsch und Englisch und nehme mir so viel Zeit, wie Sie brauchen.',
+      'Ich komme aus Deutschland, bin in Dubai aufgewachsen und lebe jetzt in {town}. Ich habe einen Abschluss in IT, spreche Deutsch und Englisch und nehme mir so viel Zeit, wie Sie brauchen.',
     aboutLink: 'Mehr über mich',
     photoAlt: 'Foto von Josy',
 
@@ -175,11 +175,11 @@ export default {
     faq: [
       {
         q: 'Wo machen Sie Hausbesuche?',
-        a: 'Ich besuche Sie in {town} und Umgebung. [Schreiben Sie hier, welche Orte Sie abdecken.]',
+        a: 'Ich mache Hausbesuche in der ganzen Algarve. Ich wohne in der Nähe von Almancil, Vale do Lobo, Quinta do Lago, Quarteira und Vilamoura.',
       },
       {
         q: 'Wie kann ich bezahlen?',
-        a: '[Schreiben Sie hier, wie man bezahlen kann, zum Beispiel bar oder per Überweisung.]',
+        a: 'Bar oder mit PayPal. PayPal ist praktisch, wenn Ihre Familie aus dem Ausland bezahlt.',
       },
       {
         q: 'Kann meine Familie für mich buchen?',
@@ -187,7 +187,7 @@ export default {
       },
       {
         q: 'Was ist, wenn ich den Termin ändern muss?',
-        a: 'Rufen Sie mich einfach an oder schreiben Sie mir. [Schreiben Sie hier, wie früh man Bescheid geben sollte.]',
+        a: 'Rufen Sie mich einfach an oder schreiben Sie mir, spätestens 2 Stunden vor dem Besuch.',
       },
     ],
     cta: 'Möchten Sie buchen oder haben Sie eine Frage?',
@@ -200,10 +200,11 @@ export default {
     heading: 'Hallo, ich bin Josy',
     photoAlt: 'Foto von Josy',
     paragraphs: [
-      'Ich lebe in {town} und helfe Menschen, sich mit ihrem iPhone wohlzufühlen.',
-      '[Schreiben Sie hier ein paar Sätze über sich: woher Sie kommen und warum Sie mit Ask Josy angefangen haben.]',
-      'Ich spreche Deutsch und Englisch. Ich bin geduldig und habe es nie eilig. Keine Frage ist zu klein, und Sie können dieselbe Sache so oft fragen, wie Sie möchten.',
-      '[Schreiben Sie hier etwas Persönliches, zum Beispiel ein Hobby oder was Sie an {town} lieben.]',
+      'Ich komme aus Deutschland und bin in Dubai aufgewachsen. Jetzt lebe ich in {town}.',
+      'Deutsch und Englisch sind beide meine Muttersprachen. Sie können mit mir in der Sprache sprechen, in der Sie sich am wohlsten fühlen.',
+      'Ich habe einen Abschluss in IT und viel Erfahrung mit Handys und dem Einrichten von Geräten. Ich habe Ask Josy gegründet, um dieses Wissen ruhig und einfach weiterzugeben, damit Sie Ihr iPhone genießen können, statt sich darüber zu ärgern.',
+      'Ich bin geduldig und habe es nie eilig. Keine Frage ist zu klein, und Sie können dieselbe Sache so oft fragen, wie Sie möchten.',
+      'In meiner Freizeit spiele ich Padel und Golf. Ich habe zwei Katzen, und ich liebe die Sonne hier und die Freundlichkeit der Menschen.',
     ],
     valuesTitle: 'Was Sie von mir erwarten können',
     values: [

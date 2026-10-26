@@ -283,6 +283,7 @@ main:focus { outline: none; }
   width: 8rem;
   height: 8rem;
   border-radius: 50%;
+  object-fit: cover;
   border: 4px solid var(--surface);
   box-shadow: 0 0 0 2px var(--tint);
 }

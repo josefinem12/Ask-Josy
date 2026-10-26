@@ -9,7 +9,7 @@ A simple website in English and German, built with [Astro](https://astro.build).
 | Phone, WhatsApp, email, prices, hours, town | `src/settings/business.js` |
 | English words                        | `src/i18n/en.js`              |
 | German words                         | `src/i18n/de.js`              |
-| Your photo                           | replace `public/images/josy-placeholder.svg` (and update the file name in `src/pages/[lang]/index.astro`) |
+| Your photo                           | replace `public/images/josy-face.jpg` (round photo, square) and `public/images/josy.jpg` (About page, upright), keeping the same file names |
 | Colours and sizes                    | `src/styles/global.css`       |
 
 Only change the words **between the quotes**. Keep the commas and brackets as they are.

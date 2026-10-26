@@ -93,7 +93,7 @@ export default {
 
     aboutTitle: 'Hello, I am Josy',
     aboutText:
-      'I live in {town} and I enjoy helping people feel at ease with technology. I am patient, I speak English and German, and I will take all the time you need.',
+      'I am from Germany, grew up in Dubai, and now live in {town}. I have a degree in IT, I speak German and English, and I will take all the time you need.',
     aboutLink: 'More about me',
     photoAlt: 'Photo of Josy',
 
@@ -175,11 +175,11 @@ export default {
     faq: [
       {
         q: 'Where do you visit?',
-        a: 'I visit homes in {town} and nearby. [Write which places you cover.]',
+        a: 'I visit homes all over the Algarve. I am based near Almancil, Vale do Lobo, Quinta do Lago, Quarteira and Vilamoura.',
       },
       {
         q: 'How can I pay?',
-        a: '[Write how people can pay, for example cash or bank transfer.]',
+        a: 'In cash or with PayPal. PayPal is handy for family who pay from abroad.',
       },
       {
         q: 'Can my family book for me?',
@@ -187,7 +187,7 @@ export default {
       },
       {
         q: 'What if I need to change the time?',
-        a: 'Just call or message me. [Write how much notice you need.]',
+        a: 'Just call or message me at least 2 hours before the visit.',
       },
     ],
     cta: 'Ready to book, or have a question?',
@@ -200,10 +200,11 @@ export default {
     heading: 'Hello, I am Josy',
     photoAlt: 'Photo of Josy',
     paragraphs: [
-      'I live in {town}, and I help people feel at ease with their iPhone.',
-      '[Write a few sentences about yourself: where you are from, and why you started Ask Josy.]',
-      'I speak English and German. I am patient, and I never rush. No question is too small, and you can ask the same thing as many times as you like.',
-      '[Write something personal, for example a hobby or what you love about {town}.]',
+      'I am from Germany and grew up in Dubai. Now I live in {town}.',
+      'German and English are both my native languages. You can talk to me in the one you feel most at home in.',
+      'I have a degree in IT and a lot of experience with phones and setting up devices. I started Ask Josy to share this in a calm and simple way, so that you can enjoy your iPhone instead of worrying about it.',
+      'I am patient, and I never rush. No question is too small, and you can ask the same thing as many times as you like.',
+      'In my free time I play padel and golf. I have two cats, and I love the sunshine here and the kindness of the people.',
     ],
     valuesTitle: 'What you can expect from me',
     values: [
