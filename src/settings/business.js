@@ -30,11 +30,11 @@ export const business = {
   },
 
   prices: {
-    homeVisitHour: 30,        // home visit, per hour
-    homeVisitPackage3: 60,    // package of 3 home visits
+    homeVisitHour: 35,        // home visit, per hour
+    homeVisitPackage3: 90,    // package of 3 home visits
     groupSession: 10,         // group session, per person
-    phoneSetup: 30,           // phone setup
-    printedGuide: 20,         // one printed guide
+    phoneSetup: 40,           // phone setup
+    printedGuide: 5,          // one printed guide
   },
 };
 
