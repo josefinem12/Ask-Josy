@@ -6,8 +6,15 @@ import Header from '../components/Header.astro';
 import Footer from '../components/Footer.astro';
 import { languages, url } from '../i18n/languages.js';
 
-interface Props { lang: string; page: string; title: string; description: string }
-const { lang, page, title, description } = Astro.props;
+interface Props {
+  lang: string;
+  page: string;
+  title: string;
+  description: string;
+  alternates?: Record<string, string>;
+}
+const { lang, page, title, description, alternates = {} } = Astro.props;
+const altLinks = Object.keys(languages).map((code) => [code, alternates[code] ?? url(code, page)]);
 ---
 <!doctype html>
 <html lang={lang}>
@@ -18,12 +25,12 @@ const { lang, page, title, description } = Astro.props;
     <meta name="description" content={description} />
     <meta name="theme-color" content="#0e5e5a" />
     <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
-    {Object.keys(languages).map((code) => (
-      <link rel="alternate" hreflang={code} href={new URL(url(code, page), Astro.site)} />
+    {altLinks.map(([code, href]) => (
+      <link rel="alternate" hreflang={code} href={new URL(href, Astro.site)} />
     ))}
   </head>
   <body>
-    <Header lang={lang} page={page} />
+    <Header lang={lang} page={page} alternates={alternates} />
     <main id="main" tabindex="-1">
       <slot />
     </main>

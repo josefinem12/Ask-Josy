@@ -30,6 +30,7 @@ export const business = {
     homeVisitPackage3: null,  // package of 3 home visits
     groupSession: null,       // group session, per person
     phoneSetup: null,         // phone setup (leave null if part of a home visit)
+    printedGuide: null,       // one printed guide
   },
 
   // Formspree form ID, e.g. 'xyzabcd'. See README for how to get one.

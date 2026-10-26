@@ -1,0 +1,29 @@
+---
+// Shown when someone opens an address that does not exist.
+// It is shown in every language, one below the other.
+import '@fontsource/atkinson-hyperlegible/400.css';
+import '@fontsource/atkinson-hyperlegible/700.css';
+import '../styles/global.css';
+import { languages, defaultLang, url } from '../i18n/languages.js';
+---
+<!doctype html>
+<html lang={defaultLang}>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>{languages[defaultLang].text.notFound.title}</title>
+    <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
+  </head>
+  <body>
+    <main class="container language-choice">
+      <p class="logo">Ask&nbsp;Josy</p>
+      {Object.entries(languages).map(([code, info]) => (
+        <section lang={code} class="not-found">
+          <h1>{info.text.notFound.heading}</h1>
+          <p>{info.text.notFound.text}</p>
+          <a class="button button-primary" href={url(code)}>{info.text.notFound.home}</a>
+        </section>
+      ))}
+    </main>
+  </body>
+</html>

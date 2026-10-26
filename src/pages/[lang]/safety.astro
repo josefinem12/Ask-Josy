@@ -1,0 +1,57 @@
+---
+import Base from '../../layouts/Base.astro';
+import Icon from '../../components/Icon.astro';
+import { languages, t, fill } from '../../i18n/languages.js';
+import ContactButtons from '../../components/ContactButtons.astro';
+
+export function getStaticPaths() {
+  return Object.keys(languages).map((lang) => ({ params: { lang } }));
+}
+
+const { lang } = Astro.params;
+const text = t(lang).safety;
+---
+<Base lang={lang} page="safety" title={text.title} description={text.description}>
+  <div class="page-intro container">
+    <h1>{text.heading}</h1>
+    <p class="lead">{text.intro}</p>
+  </div>
+
+  <section class="container" aria-labelledby="promise-title">
+    <div class="safety-box">
+      <Icon name="shield" size={48} />
+      <div>
+        <h2 id="promise-title">{text.promisesTitle}</h2>
+        <ul class="promise-list">
+          {text.promises.map((promise) => <li>{promise}</li>)}
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <section class="section container" aria-labelledby="control-title">
+    <h2 id="control-title">{text.controlTitle}</h2>
+    <ul class="check-list">
+      {text.control.map((point) => (
+        <li><Icon name="check" size={28} /><span>{point}</span></li>
+      ))}
+    </ul>
+  </section>
+
+  <section class="container" aria-labelledby="fake-title">
+    <div class="family-box">
+      <h2 id="fake-title">{text.fakeTitle}</h2>
+      <p>{fill(text.fakeText, lang)}</p>
+      <ContactButtons lang={lang} showNumber={false} />
+    </div>
+  </section>
+
+  <section class="section container" aria-labelledby="scams-title">
+    <h2 id="scams-title">{text.scamsTitle}</h2>
+    <p>{text.scamsIntro}</p>
+    <ul class="warning-list">
+      {text.scams.map((scam) => <li>{scam}</li>)}
+    </ul>
+    <p class="advice">{text.scamsAdvice}</p>
+  </section>
+</Base>

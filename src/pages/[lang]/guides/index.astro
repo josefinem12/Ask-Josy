@@ -1,0 +1,44 @@
+---
+import { getCollection } from 'astro:content';
+import Base from '../../../layouts/Base.astro';
+import Icon from '../../../components/Icon.astro';
+import PageCta from '../../../components/PageCta.astro';
+import { languages, t, url } from '../../../i18n/languages.js';
+
+export function getStaticPaths() {
+  return Object.keys(languages).map((lang) => ({ params: { lang } }));
+}
+
+const { lang } = Astro.params;
+const text = t(lang).guides;
+const guides = (await getCollection('guides', (guide) => guide.id.startsWith(`${lang}/`)))
+  .sort((a, b) => a.data.order - b.data.order);
+---
+<Base lang={lang} page="guides" title={text.title} description={text.description}>
+  <div class="page-intro container">
+    <h1>{text.heading}</h1>
+    <p class="lead">{text.intro}</p>
+  </div>
+
+  <div class="container">
+    {guides.length === 0 ? (
+      <p>{text.empty}</p>
+    ) : (
+      <ul class="card-grid">
+        {guides.map((guide) => (
+          <li class="card">
+            <span class="card-icon"><Icon name="guide" size={36} /></span>
+            <h2 class="card-title">{guide.data.title}</h2>
+            <p>{guide.data.summary}</p>
+            <a class="button button-secondary card-button" href={url(lang, `guides/${guide.id.split('/')[1]}`)}>
+              <span>{text.readGuide}</span>
+              <Icon name="arrow" />
+            </a>
+          </li>
+        ))}
+      </ul>
+    )}
+  </div>
+
+  <PageCta lang={lang} heading={text.help} />
+</Base>

@@ -1,0 +1,59 @@
+---
+import Base from '../../layouts/Base.astro';
+import Icon from '../../components/Icon.astro';
+import PageCta from '../../components/PageCta.astro';
+import { languages, t, fill } from '../../i18n/languages.js';
+
+export function getStaticPaths() {
+  return Object.keys(languages).map((lang) => ({ params: { lang } }));
+}
+
+const { lang } = Astro.params;
+const text = t(lang).services;
+---
+<Base lang={lang} page="services" title={text.title} description={text.description}>
+  <div class="page-intro container">
+    <h1>{text.heading}</h1>
+    <p class="lead">{text.intro}</p>
+  </div>
+
+  <div class="container service-list">
+    {text.items.map((item) => (
+      <section class="service">
+        <span class="card-icon"><Icon name={item.icon} size={36} /></span>
+        <div>
+          <h2>{item.title}</h2>
+          <p>{item.text}</p>
+          {item.includes.length > 0 && (
+            <>
+              <p class="list-label">{text.includesLabel}</p>
+              <ul class="check-list">
+                {item.includes.map((point) => (
+                  <li><Icon name="check" size={28} /><span>{point}</span></li>
+                ))}
+              </ul>
+            </>
+          )}
+          <p class="price-box">
+            <span class="price-label">{item.label ?? text.priceLabel}:</span>
+            <span>{fill(item.price, lang)}</span>
+          </p>
+        </div>
+      </section>
+    ))}
+  </div>
+
+  <section class="section container" aria-labelledby="faq-title">
+    <h2 id="faq-title">{text.faqTitle}</h2>
+    <dl class="faq">
+      {text.faq.map((item) => (
+        <div>
+          <dt>{item.q}</dt>
+          <dd>{fill(item.a, lang)}</dd>
+        </div>
+      ))}
+    </dl>
+  </section>
+
+  <PageCta lang={lang} heading={text.cta} />
+</Base>

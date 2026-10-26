@@ -1,8 +1,14 @@
 ---
 import { languages, t, url } from '../i18n/languages.js';
 
-interface Props { lang: string; page: string }
-const { lang, page } = Astro.props;
+interface Props {
+  lang: string;
+  page: string;
+  // Optional: where the language buttons should go, if not the same page.
+  alternates?: Record<string, string>;
+}
+const { lang, page, alternates = {} } = Astro.props;
+const activePage = page.split('/')[0];
 const text = t(lang);
 
 const navItems = [
@@ -23,7 +29,7 @@ const navItems = [
     <nav class="language-switch" aria-label={text.languageLabel}>
       {Object.entries(languages).map(([code, info]) => (
         <a
-          href={url(code, page)}
+          href={alternates[code] ?? url(code, page)}
           lang={code}
           hreflang={code}
           aria-current={code === lang ? 'true' : undefined}
@@ -40,7 +46,7 @@ const navItems = [
     <ul>
       {navItems.map((item) => (
         <li>
-          <a href={url(lang, item.page)} aria-current={item.page === page ? 'page' : undefined}>
+          <a href={url(lang, item.page)} aria-current={item.page === activePage ? 'page' : undefined}>
             {item.label}
           </a>
         </li>
@@ -53,7 +59,7 @@ const navItems = [
     <ul class="container">
       {navItems.map((item) => (
         <li>
-          <a href={url(lang, item.page)} aria-current={item.page === page ? 'page' : undefined}>
+          <a href={url(lang, item.page)} aria-current={item.page === activePage ? 'page' : undefined}>
             {item.label}
           </a>
         </li>

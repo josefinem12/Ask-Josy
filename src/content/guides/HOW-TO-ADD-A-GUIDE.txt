@@ -1,0 +1,14 @@
+HOW TO ADD A NEW GUIDE
+======================
+
+1. Copy an existing guide, for example en/bigger-text.md.
+2. Give the copy a short name with dashes, for example en/send-a-photo.md.
+   This name becomes the web address: /en/guides/send-a-photo/
+3. Change the title, summary and steps.
+4. For the German version, create a file with the SAME name in de/.
+   Then the language switch jumps straight between the two versions.
+
+Writing steps:
+- Number each step: 1. 2. 3.
+- Put button names in **bold**, exactly as they appear on the iPhone.
+- One action per step.

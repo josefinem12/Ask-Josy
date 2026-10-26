@@ -1,0 +1,145 @@
+---
+import Base from '../../layouts/Base.astro';
+import Icon from '../../components/Icon.astro';
+import ContactButtons from '../../components/ContactButtons.astro';
+import { languages, t, fill } from '../../i18n/languages.js';
+import { business, emailLink } from '../../settings/business.js';
+
+export function getStaticPaths() {
+  return Object.keys(languages).map((lang) => ({ params: { lang } }));
+}
+
+const { lang } = Astro.params;
+const text = t(lang).contact;
+const f = text.fields;
+---
+<Base lang={lang} page="contact" title={text.title} description={text.description}>
+  <div class="page-intro container">
+    <h1>{text.heading}</h1>
+    <p class="lead">{text.intro}</p>
+    <ContactButtons lang={lang} />
+    <p>{fill(text.callbackNote, lang)}</p>
+    <p>
+      {text.emailLabel} <a href={emailLink}>{business.email}</a>
+    </p>
+  </div>
+
+  <section class="section section-tinted" aria-labelledby="form-title">
+    <div class="container">
+      <h2 id="form-title">{text.formTitle}</h2>
+      <p>{text.formIntro}</p>
+
+      <!-- The form is sent by Formspree. Your form ID is in src/settings/business.js -->
+      <form
+        id="booking-form"
+        class="booking-form"
+        action={`https://formspree.io/f/${business.formspreeId}`}
+        method="POST"
+        data-sending={text.sending}
+      >
+        <p class="form-note">{text.requiredNote}</p>
+
+        <input type="hidden" name="_subject" value="Ask Josy: new request" />
+        <input type="hidden" name="website_language" value={lang} />
+        <!-- Hidden trap for spam robots. People never see it. -->
+        <div class="visually-hidden" aria-hidden="true">
+          <label>Leave empty <input type="text" name="_gotcha" tabindex="-1" autocomplete="off" /></label>
+        </div>
+
+        <div class="field">
+          <label for="name">{f.name} <span class="field-tag">({text.required})</span></label>
+          <input id="name" name="name" type="text" autocomplete="name" required />
+        </div>
+
+        <div class="field">
+          <label for="phone">{f.phone} <span class="field-tag">({text.required})</span></label>
+          <input id="phone" name="phone" type="tel" autocomplete="tel" required />
+        </div>
+
+        <div class="field">
+          <label for="email">{f.email} <span class="field-tag">({text.optional})</span></label>
+          <input id="email" name="email" type="email" autocomplete="email" />
+        </div>
+
+        <fieldset class="field">
+          <legend>{f.language}</legend>
+          <div class="choices">
+            {Object.entries(languages).map(([code, info]) => (
+              <label class="choice">
+                <input type="radio" name="preferred_language" value={info.label} checked={code === lang} />
+                <span lang={code}>{info.label}</span>
+              </label>
+            ))}
+          </div>
+        </fieldset>
+
+        <fieldset class="field">
+          <legend>{f.bookingFor} <span class="field-tag">({text.optional})</span></legend>
+          <div class="choices">
+            <label class="choice">
+              <input type="radio" name="help_is_for" value="Myself" />
+              <span>{f.bookingForSelf}</span>
+            </label>
+            <label class="choice">
+              <input type="radio" name="help_is_for" value="Parent or someone else" />
+              <span>{f.bookingForOther}</span>
+            </label>
+          </div>
+        </fieldset>
+
+        <div class="field">
+          <label for="message">{f.message} <span class="field-tag">({text.optional})</span></label>
+          <p class="field-hint" id="message-hint">{f.messageHint}</p>
+          <textarea id="message" name="message" rows="5" aria-describedby="message-hint"></textarea>
+        </div>
+
+        <p class="form-note">{text.privacy}</p>
+
+        <button class="button button-primary button-large" type="submit">
+          <span>{text.submit}</span>
+        </button>
+
+        <p class="form-error" id="form-error" role="alert" hidden>{text.errorText}</p>
+      </form>
+
+      <div class="form-success" id="form-success" hidden>
+        <Icon name="check" size={48} />
+        <div>
+          <h2 tabindex="-1">{text.successTitle}</h2>
+          <p>{text.successText}</p>
+        </div>
+      </div>
+    </div>
+  </section>
+</Base>
+
+<script>
+  // Sends the form without leaving the page, then shows "Thank you".
+  // If this script cannot run, the form still works the normal way.
+  const form = document.getElementById('booking-form') as HTMLFormElement | null;
+  const success = document.getElementById('form-success');
+  const error = document.getElementById('form-error');
+
+  form?.addEventListener('submit', async (event) => {
+    event.preventDefault();
+    const button = form.querySelector('button[type="submit"] span') as HTMLElement;
+    const label = button.textContent;
+    button.textContent = form.dataset.sending ?? label;
+    error?.setAttribute('hidden', '');
+
+    try {
+      const response = await fetch(form.action, {
+        method: 'POST',
+        body: new FormData(form),
+        headers: { Accept: 'application/json' },
+      });
+      if (!response.ok) throw new Error(String(response.status));
+      form.hidden = true;
+      success?.removeAttribute('hidden');
+      success?.querySelector('h2')?.focus();
+    } catch {
+      error?.removeAttribute('hidden');
+      button.textContent = label;
+    }
+  });
+</script>

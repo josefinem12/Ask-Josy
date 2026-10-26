@@ -1,0 +1,41 @@
+---
+import Base from '../../layouts/Base.astro';
+import Icon from '../../components/Icon.astro';
+import PageCta from '../../components/PageCta.astro';
+import { languages, t, fill } from '../../i18n/languages.js';
+
+export function getStaticPaths() {
+  return Object.keys(languages).map((lang) => ({ params: { lang } }));
+}
+
+const { lang } = Astro.params;
+const text = t(lang).about;
+---
+<Base lang={lang} page="about" title={text.title} description={fill(text.description, lang)}>
+  <div class="container about-page">
+    <img
+      class="about-photo"
+      src="/images/josy-placeholder.svg"
+      alt={text.photoAlt}
+      width="400"
+      height="400"
+    />
+    <div>
+      <h1>{text.heading}</h1>
+      {text.paragraphs.map((paragraph) => <p>{fill(paragraph, lang)}</p>)}
+    </div>
+  </div>
+
+  <section class="section container" aria-labelledby="values-title">
+    <div class="family-box">
+      <h2 id="values-title">{text.valuesTitle}</h2>
+      <ul class="check-list">
+        {text.values.map((value) => (
+          <li><Icon name="check" size={28} /><span>{value}</span></li>
+        ))}
+      </ul>
+    </div>
+  </section>
+
+  <PageCta lang={lang} heading={text.cta} />
+</Base>

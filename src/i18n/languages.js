@@ -40,6 +40,7 @@ export function fill(text, lang) {
     packagePrice: formatPrice(p.homeVisitPackage3, lang),
     groupPrice: formatPrice(p.groupSession, lang),
     setupPrice: formatPrice(p.phoneSetup, lang),
+    guidePrice: formatPrice(p.printedGuide, lang),
   };
   return text.replace(/\{(\w+)\}/g, (match, key) => values[key] ?? match);
 }

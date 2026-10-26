@@ -1,0 +1,22 @@
+---
+// "Get in touch" block shown at the bottom of most pages.
+import Icon from './Icon.astro';
+import ContactButtons from './ContactButtons.astro';
+import { t, url } from '../i18n/languages.js';
+
+interface Props { lang: string; heading: string }
+const { lang, heading } = Astro.props;
+const text = t(lang);
+---
+<section class="section section-tinted no-print" aria-labelledby="cta-title">
+  <div class="container">
+    <h2 id="cta-title">{heading}</h2>
+    <ContactButtons lang={lang} />
+    <p>
+      <a class="button button-secondary" href={url(lang, 'contact')}>
+        <Icon name="calendar" />
+        <span>{text.buttons.book}</span>
+      </a>
+    </p>
+  </div>
+</section>

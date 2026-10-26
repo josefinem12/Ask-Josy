@@ -72,7 +72,8 @@ export default {
         icon: 'phone',
         title: 'Rückruf-Hilfe',
         text: 'Schreiben Sie mir oder rufen Sie an. Ich rufe Sie innerhalb weniger Stunden zurück.',
-        price: 'Rückrufzeiten: {callbackHours}',
+        label: 'Rückrufzeiten', // wird statt "Preis" angezeigt
+        price: '{callbackHours}',
       },
       {
         icon: 'guide',
@@ -108,5 +109,196 @@ export default {
 
     contactTitle: 'Kontakt',
     contactText: 'Rufen Sie an, schreiben Sie per WhatsApp oder per E-Mail. Ich helfe gerne.',
+  },
+
+  // ── Seite: Angebote & Preise ────────────────────────────────
+  services: {
+    title: 'Angebote und Preise – Ask Josy',
+    description: 'Hausbesuche, Gruppentreffen, iPhone einrichten, Rückruf-Hilfe und Anleitungen zum Ausdrucken. Klare Preise, keine Überraschungen.',
+    heading: 'Angebote und Preise',
+    intro: 'Klare Preise, keine Überraschungen. Wenn Sie nicht sicher sind, was Sie brauchen, rufen Sie mich einfach an. Wir finden es gemeinsam heraus.',
+    priceLabel: 'Preis',
+    includesLabel: 'Das kann dazugehören:',
+    items: [
+      {
+        icon: 'home',
+        title: 'Hausbesuche',
+        text: 'Ich komme zu Ihnen nach Hause und helfe bei jedem Problem mit Ihrem iPhone. Wir gehen in Ihrem Tempo vor, und ich erkläre alles in einfachen Worten.',
+        includes: [
+          'Anrufe, Nachrichten, WhatsApp und Videoanrufe mit der Familie',
+          'Fotos: aufnehmen, finden und verschicken',
+          'Apps, Updates und Passwörter (Sie tippen sie ein, nicht ich)',
+          'Alles andere, was Ihnen Sorgen macht',
+        ],
+        price: '{hourPrice} pro Stunde, oder {packagePrice} für ein Paket mit 3 Besuchen',
+      },
+      {
+        icon: 'group',
+        title: 'Gruppentreffen',
+        text: 'Ein entspanntes Treffen in kleiner Runde an einem Ort in der Nähe. Wir schauen uns gemeinsam ein Thema an, und es bleibt Zeit für Ihre eigenen Fragen.',
+        includes: [
+          'Eine freundliche, kleine Gruppe',
+          'Jedes Mal ein klares Thema',
+          'Zeit für Ihre eigenen Fragen',
+        ],
+        price: '{groupPrice} pro Person',
+      },
+      {
+        icon: 'setup',
+        title: 'iPhone einrichten',
+        text: 'Ich mache Ihr iPhone einfacher und sicherer, damit Sie es jeden Tag leichter benutzen können.',
+        includes: [
+          'Größere Schrift und klarere Bildschirme',
+          'Unterstützter Zugriff: eine sehr einfache Version des iPhones mit großen Tasten',
+          'Ihre wichtigsten Kontakte auf dem Startbildschirm',
+          'Schutz vor betrügerischen Anrufen und Nachrichten',
+        ],
+        price: '{setupPrice}',
+      },
+      {
+        icon: 'phone',
+        title: 'Rückruf-Hilfe',
+        text: 'Hängen Sie bei einer Kleinigkeit fest? Schreiben Sie mir oder rufen Sie an. Ich rufe Sie innerhalb weniger Stunden zurück und helfe Ihnen am Telefon.',
+        includes: [],
+        label: 'Rückrufzeiten', // wird statt "Preis" angezeigt
+        price: '{callbackHours}',
+      },
+      {
+        icon: 'guide',
+        title: 'Einfache Anleitungen zum Ausdrucken',
+        text: 'Anleitungen in großer Schrift, die alltägliche Aufgaben Schritt für Schritt mit Bildern zeigen. Legen Sie sie neben Ihr Telefon.',
+        includes: [],
+        price: '{guidePrice} pro gedruckter Anleitung. Einige Anleitungen gibt es auch kostenlos auf dieser Website.',
+      },
+    ],
+    faqTitle: 'Gut zu wissen',
+    faq: [
+      {
+        q: 'Wo machen Sie Hausbesuche?',
+        a: 'Ich besuche Sie in {town} und Umgebung. [Schreiben Sie hier, welche Orte Sie abdecken.]',
+      },
+      {
+        q: 'Wie kann ich bezahlen?',
+        a: '[Schreiben Sie hier, wie man bezahlen kann, zum Beispiel bar oder per Überweisung.]',
+      },
+      {
+        q: 'Kann meine Familie für mich buchen?',
+        a: 'Ja. Ihr Sohn, Ihre Tochter oder jemand, dem Sie vertrauen, kann für Sie buchen und bezahlen, von überall.',
+      },
+      {
+        q: 'Was ist, wenn ich den Termin ändern muss?',
+        a: 'Rufen Sie mich einfach an oder schreiben Sie mir. [Schreiben Sie hier, wie früh man Bescheid geben sollte.]',
+      },
+    ],
+    cta: 'Möchten Sie buchen oder haben Sie eine Frage?',
+  },
+
+  // ── Seite: Über mich ────────────────────────────────────────
+  about: {
+    title: 'Über mich – Ask Josy',
+    description: 'Hallo, ich bin Josy. Ich helfe Menschen in {town}, sich mit ihrem iPhone wohlzufühlen.',
+    heading: 'Hallo, ich bin Josy',
+    photoAlt: 'Foto von Josy',
+    paragraphs: [
+      'Ich lebe in {town} und helfe Menschen, sich mit ihrem iPhone wohlzufühlen.',
+      '[Schreiben Sie hier ein paar Sätze über sich: woher Sie kommen und warum Sie mit Ask Josy angefangen haben.]',
+      'Ich spreche Deutsch und Englisch. Ich bin geduldig und habe es nie eilig. Keine Frage ist zu klein, und Sie können dieselbe Sache so oft fragen, wie Sie möchten.',
+      '[Schreiben Sie hier etwas Persönliches, zum Beispiel ein Hobby oder was Sie an {town} lieben.]',
+    ],
+    valuesTitle: 'Was Sie von mir erwarten können',
+    values: [
+      'Geduld. Wir gehen in Ihrem Tempo vor.',
+      'Einfache Worte, keine Fachsprache.',
+      'Ehrlichkeit. Ich empfehle nur, was Sie wirklich brauchen.',
+      'Ihre Privatsphäre. Ich frage Sie nie nach Passwörtern, PINs oder Bankdaten.',
+    ],
+    cta: 'Ich freue mich, von Ihnen zu hören.',
+  },
+
+  // ── Seite: Sicherheitsversprechen ───────────────────────────
+  safety: {
+    title: 'Mein Sicherheitsversprechen – Ask Josy',
+    description: 'Ich frage Sie nie nach Passwörtern, PINs oder Bankdaten. Dazu einfache Tipps zum Schutz vor Telefonbetrug.',
+    heading: 'Mein Sicherheitsversprechen',
+    intro: 'Ihre Sicherheit und Ihre Privatsphäre stehen an erster Stelle. Das verspreche ich Ihnen.',
+    promisesTitle: 'Ich werde Sie nie:',
+    promises: [
+      'nach Ihren Passwörtern oder Ihrem Telefon-Code fragen',
+      'nach Ihrer Bank-PIN oder Ihren Kartendaten fragen',
+      'bitten, Geld zu überweisen oder Gutscheinkarten zu kaufen',
+      'bitten, Ihre Banking-App zu öffnen oder Ihr Bankkonto zu zeigen',
+    ],
+    controlTitle: 'Sie behalten die Kontrolle',
+    control: [
+      'Wenn ein Passwort nötig ist, tippen Sie es selbst ein. Ich schaue weg.',
+      'Ich erkläre, was ich mache, bevor ich es mache.',
+      'Sie können mich jederzeit bitten aufzuhören.',
+    ],
+    fakeTitle: 'Wenn jemand sagt, er sei ich',
+    fakeText:
+      'Wenn jemand anruft oder schreibt, sich als Josy ausgibt und nach einem Passwort, einem Code oder Geld fragt, bin das nicht ich. Legen Sie auf und rufen Sie mich unter {phone} an.',
+    scamsTitle: 'So erkennen Sie Betrug',
+    scamsIntro: 'Betrüger geben sich oft als Ihre Bank, die Polizei, ein Paketdienst oder ein Familienmitglied aus. Seien Sie vorsichtig, wenn jemand:',
+    scams: [
+      'sagt, es sei dringend und Sie müssten sofort handeln',
+      'nach einem Code fragt, der an Ihr Telefon geschickt wurde',
+      'möchte, dass Sie mit Gutscheinkarten bezahlen oder Geld überweisen',
+      'von einer neuen Nummer schreibt: „Hallo Mama“ oder „Hallo Papa“',
+      'Ihnen einen Link schickt und Sie bittet, sich anzumelden',
+    ],
+    scamsAdvice: 'Wenn Sie unsicher sind: Halten Sie inne, drücken Sie nichts, und rufen Sie Ihre Bank oder Ihre Familie unter einer Nummer an, die Sie schon kennen. Sie können auch jederzeit mich anrufen.',
+  },
+
+  // ── Seiten: Kostenlose Anleitungen ──────────────────────────
+  guides: {
+    title: 'Kostenlose Anleitungen – Ask Josy',
+    description: 'Einfache Schritt-für-Schritt-Anleitungen für Ihr iPhone, in großer Schrift. Kostenlos zum Lesen und Ausdrucken.',
+    heading: 'Kostenlose Anleitungen',
+    intro: 'Einfache Schritt-für-Schritt-Anleitungen für Ihr iPhone. Sie können sie hier lesen oder ausdrucken.',
+    empty: 'Neue Anleitungen kommen bald.',
+    readGuide: 'Diese Anleitung lesen',
+    back: 'Zurück zu allen Anleitungen',
+    print: 'Diese Anleitung drucken',
+    help: 'Kommen Sie nicht weiter? Rufen Sie mich an, ich helfe Ihnen.',
+  },
+
+  // ── Seite: Besuch buchen ────────────────────────────────────
+  contact: {
+    title: 'Besuch buchen – Ask Josy',
+    description: 'Rufen Sie an, schreiben Sie per WhatsApp oder füllen Sie das kurze Formular aus. Ich melde mich bei Ihnen.',
+    heading: 'Besuch buchen',
+    intro: 'Am einfachsten ist es, mich anzurufen oder mir per WhatsApp zu schreiben.',
+    callbackNote: 'Wenn ich nicht abnehmen kann, rufe ich Sie zurück. Rückrufzeiten: {callbackHours}.',
+    emailLabel: 'E-Mail:',
+    formTitle: 'Oder schicken Sie mir eine Nachricht',
+    formIntro: 'Füllen Sie dieses kurze Formular aus, und ich rufe Sie zurück.',
+    requiredNote: 'Felder mit „Pflichtfeld“ müssen ausgefüllt werden.',
+    required: 'Pflichtfeld',
+    optional: 'freiwillig',
+    fields: {
+      name: 'Ihr Name',
+      phone: 'Ihre Telefonnummer',
+      email: 'Ihre E-Mail-Adresse',
+      language: 'Welche Sprache ist Ihnen lieber?',
+      bookingFor: 'Für wen ist die Hilfe?',
+      bookingForSelf: 'Für mich',
+      bookingForOther: 'Für meine Eltern oder jemand anderen',
+      message: 'Wobei brauchen Sie Hilfe?',
+      messageHint: 'Ein paar Worte reichen, zum Beispiel „Ich kann keine Fotos verschicken“.',
+    },
+    privacy: 'Ich nutze Ihre Angaben nur, um Ihnen zu antworten. Ich gebe sie nie weiter.',
+    submit: 'Nachricht senden',
+    sending: 'Wird gesendet …',
+    successTitle: 'Vielen Dank!',
+    successText: 'Ihre Nachricht ist angekommen. Ich rufe Sie bald zurück.',
+    errorText: 'Entschuldigung, da ist etwas schiefgegangen. Bitte rufen Sie mich an oder schreiben Sie mir per WhatsApp.',
+  },
+
+  // ── Seite nicht gefunden ────────────────────────────────────
+  notFound: {
+    title: 'Seite nicht gefunden – Ask Josy',
+    heading: 'Diese Seite gibt es leider nicht',
+    text: 'Vielleicht ist der Link alt oder enthält einen Tippfehler.',
+    home: 'Zur Startseite',
   },
 };
