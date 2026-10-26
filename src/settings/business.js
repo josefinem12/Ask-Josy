@@ -35,6 +35,7 @@ export const business = {
     groupSession: 10,         // group session, per person
     phoneSetup: 40,           // phone setup
     printedGuide: 5,          // one printed guide
+    callbackMonthly: 15,      // callback help, per month
   },
 };
 

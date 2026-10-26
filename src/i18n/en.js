@@ -71,9 +71,8 @@ export default {
       {
         icon: 'phone',
         title: 'Callback help',
-        text: 'Send a message or call. I call you back within a few hours.',
-        label: 'Callback times', // shown instead of "Price"
-        price: '{callbackHours}',
+        text: 'Send a message or call. I call you back within a few hours: {callbackHours}.',
+        price: '{callbackPrice} per month, as many calls as you like',
       },
       {
         icon: 'guide',
@@ -159,9 +158,11 @@ export default {
         icon: 'phone',
         title: 'Callback help',
         text: 'Stuck with something small? Send me a message or call. I call you back within a few hours and help you over the phone.',
-        includes: [],
-        label: 'Callback times', // shown instead of "Price"
-        price: '{callbackHours}',
+        includes: [
+          'As many calls as you like',
+          'Callback times: {callbackHours}',
+        ],
+        price: '{callbackPrice} per month',
       },
       {
         icon: 'guide',

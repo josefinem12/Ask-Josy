@@ -55,7 +55,7 @@ const home = text.home;
         <li class="card">
           <span class="card-icon"><Icon name={service.icon} size={36} /></span>
           <h3>{service.title}</h3>
-          <p>{service.text}</p>
+          <p>{fill(service.text, lang)}</p>
           {service.price && <p class="price">{service.label && `${service.label}: `}{fill(service.price, lang)}</p>}
         </li>
       ))}

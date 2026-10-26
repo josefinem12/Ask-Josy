@@ -71,9 +71,8 @@ export default {
       {
         icon: 'phone',
         title: 'Rückruf-Hilfe',
-        text: 'Schreiben Sie mir oder rufen Sie an. Ich rufe Sie innerhalb weniger Stunden zurück.',
-        label: 'Rückrufzeiten', // wird statt "Preis" angezeigt
-        price: '{callbackHours}',
+        text: 'Schreiben Sie mir oder rufen Sie an. Ich rufe Sie innerhalb weniger Stunden zurück: {callbackHours}.',
+        price: '{callbackPrice} pro Monat, so viele Anrufe, wie Sie möchten',
       },
       {
         icon: 'guide',
@@ -159,9 +158,11 @@ export default {
         icon: 'phone',
         title: 'Rückruf-Hilfe',
         text: 'Hängen Sie bei einer Kleinigkeit fest? Schreiben Sie mir oder rufen Sie an. Ich rufe Sie innerhalb weniger Stunden zurück und helfe Ihnen am Telefon.',
-        includes: [],
-        label: 'Rückrufzeiten', // wird statt "Preis" angezeigt
-        price: '{callbackHours}',
+        includes: [
+          'So viele Anrufe, wie Sie möchten',
+          'Rückrufzeiten: {callbackHours}',
+        ],
+        price: '{callbackPrice} pro Monat',
       },
       {
         icon: 'guide',

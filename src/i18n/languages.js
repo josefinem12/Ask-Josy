@@ -41,6 +41,7 @@ export function fill(text, lang) {
     groupPrice: formatPrice(p.groupSession, lang),
     setupPrice: formatPrice(p.phoneSetup, lang),
     guidePrice: formatPrice(p.printedGuide, lang),
+    callbackPrice: formatPrice(p.callbackMonthly, lang),
   };
   return text.replace(/\{(\w+)\}/g, (match, key) => values[key] ?? match);
 }

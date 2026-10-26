@@ -23,13 +23,13 @@ const text = t(lang).services;
         <span class="card-icon"><Icon name={item.icon} size={36} /></span>
         <div>
           <h2>{item.title}</h2>
-          <p>{item.text}</p>
+          <p>{fill(item.text, lang)}</p>
           {item.includes.length > 0 && (
             <>
               <p class="list-label">{text.includesLabel}</p>
               <ul class="check-list">
                 {item.includes.map((point) => (
-                  <li><Icon name="check" size={28} /><span>{point}</span></li>
+                  <li><Icon name="check" size={28} /><span>{fill(point, lang)}</span></li>
                 ))}
               </ul>
             </>
